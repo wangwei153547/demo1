@@ -12,6 +12,6 @@ public class testController {
     @RequestMapping(value =  "test",method={RequestMethod.GET} )
     public String test( ){
 
-        return "你好";
+        return "你好a";
     }
 }
