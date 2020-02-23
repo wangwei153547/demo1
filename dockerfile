@@ -1,10 +1,9 @@
-FROM openjdk:8-jre
-MAINTAINER wangwei <153547767@qq.com>
-
-ENTRYPOINT ["/usr/bin/java", "-jar", "/usr/share/demo/demo.jar"]
-
-# Add Maven dependencies (not shaded into the artifact; Docker-cached)
-ADD target/lib           /usr/share/demo/lib
-# Add the service itself
+FROM frolvlad/alpine-java:jdk8-slim
+VOLUME /tmp
 ARG JAR_FILE
-ADD target/${JAR_FILE} /usr/share/demo/demo.jar
+ADD ${JAR_FILE} app.jar
+RUN sh -c 'touch /app.jar'zz
+ENV TZ=Asia/Shanghai
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
+ENV JAVA_OPTS="-server -Xms512m -Xmx512m -Xss512k"
+ENTRYPOINT [ "sh", "-c", "java $JAVA_OPTS -Djava.security.egd=file:/dev/./urandom -jar /app.jar" ]
