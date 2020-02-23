@@ -1,9 +1,5 @@
-FROM anapsix/alpine-java
+FROM java:8
 MAINTAINER wangwei
-VOLUME /tmp
-ARG JAR_FILE
-COPY ${JAR_FILE} /demo/demo.jar
-WORKDIR /demo
-RUN bash -c 'touch /demo.jar'
-EXPOSE 21000
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom", "-jar", "./demo.jar","--spring.profiles.active=pre"]
+ENTRYPOINT ["java", "-jar", "/demo.jar"]
+# Add the service itself
+ADD ${JAR_FILE} /demo.jar
