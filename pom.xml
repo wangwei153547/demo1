@@ -65,6 +65,11 @@
                 <executions>
                     <execution>
                         <id>default</id>
+                        <phase>none</phase>
+                    </execution>
+                    <execution>
+                        <id>after_deploy</id>
+                        <phase>deploy</phase>
                         <goals>
                             <goal>build</goal>
                             <goal>push</goal>
