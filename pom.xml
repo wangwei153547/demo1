@@ -62,20 +62,7 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.10</version>
                 <!--放开这块注释，则运行mvn deploy命令就会打包镜像-->
-                <executions>
-                    <execution>
-                        <id>default</id>
-                        <phase>none</phase>
-                    </execution>
-                    <execution>
-                        <id>after_deploy</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>build</goal>
-                            <goal>push</goal>
-                        </goals>
-                    </execution>
-                </executions>
+
                 <configuration>
                     <repository>${docker.repostory}/${project.artifactId}</repository>
                     <buildArgs>
