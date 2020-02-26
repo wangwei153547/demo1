@@ -20,6 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 
+        <docker.image.prefix>cqd</docker.image.prefix>
         <docker.repostory>49.234.99.107:2375</docker.repostory>
     </properties>
 
@@ -29,6 +30,11 @@
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <dependency>
+            <groupId>org.apache.tomcat.embed</groupId>
+            <artifactId>tomcat-embed-jasper</artifactId>
+            <scope>provided</scope>
+        </dependency>
 
 
         <dependency>
@@ -61,8 +67,6 @@
                 <groupId>com.spotify</groupId>
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.10</version>
-                <!--放开这块注释，则运行mvn deploy命令就会打包镜像-->
-
                 <configuration>
                     <repository>${docker.repostory}/${project.artifactId}</repository>
                     <buildArgs>
@@ -70,6 +74,7 @@
                     </buildArgs>
                 </configuration>
             </plugin>
+
     </plugins>
     </build>
  </project>
