@@ -70,7 +70,7 @@
 
                 <configuration>
 
-                    <repository>spotify/foobar</repository>
+                    <repository>wangwei/demo</repository>
                     <tag>${project.version}</tag>
 
                     <buildArgs>
