@@ -70,8 +70,9 @@
 
                 <configuration>
 
-                    <repository>cqd</repository>
-                    <finalName>demo</finalName>
+                    <repository>spotify/foobar</repository>
+                    <tag>${project.version}</tag>
+
                     <buildArgs>
 
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
