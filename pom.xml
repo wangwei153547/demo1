@@ -68,7 +68,7 @@
                 <artifactId>dockerfile-maven-plugin</artifactId>
                 <version>1.4.10</version>
                 <configuration>
-                    <repository>mytest</repository>
+                    <repository>${docker.repostory}/${project.artifactId}</repository>
                     <buildArgs>
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
                     </buildArgs>
