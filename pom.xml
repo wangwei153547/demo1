@@ -70,8 +70,8 @@
 
                 <configuration>
 
-                    <repository>cqd/demo</repository>
-
+                    <repository>cqd</repository>
+                    <finalName>demo</finalName>
                     <buildArgs>
 
                         <JAR_FILE>target/${project.build.finalName}.jar</JAR_FILE>
